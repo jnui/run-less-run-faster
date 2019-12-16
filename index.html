@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="js/dragtable/dragtable.css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script src="js/jquery.ui.min.js"></script>
+<script src="js/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript" src="js/dragtable/jquery.dragtable.js"></script>
+
+<style>
+	body {
+		font-family: Helvetica, Arial, Tahoma;
+		font-size:12px;
+		
+	}
+	#training th {cursor: move;}
+	.timeInput {
+		width:40px;
+	}
+	th,td {
+		padding:7px;
+		border:1px solid #999;
+	}
+	table {
+				border-collapse: collapse;
+		border-spacing: 0;
+	}
+	.km {
+		color:#555;
+		font-size: .8em;
+	}
+	.speedPace {
+		text-transform:uppercase;
+		font-weight: bold;
+	}
+	h1 {
+		font-size:1.5em;
+		display:inline-block;
+	}
+	h2 { font-size: 1.2em; display:inline-block; color:#777; margin-left: 30px;}
+	@media print{
+		body {
+			font-size:8px;
+		}
+		form {display:none;}
+		.notes ,
+		.notes ul,
+		.intro,
+		button.print {display:none;}
+	}
+	#operator{
+		background-color:#fffbcc;
+		font-weight: 900;
+	}
+	.print{
+		float:right;
+	}
+
+</style>
+</head>
+<body>
+
+ <h1>Run less, Run Faster training program creator</h1>
+ <h2>Includes easier speeds/paces for convenience</h2>
+
+<p class="intro">This training program creator is based on the book "Run less, Run faster" (by Bill Pierce, Scott Murr and Ray Moss)<br/>
+note: this calculator is not endorsed by the book, it was made for myself so it would be easier to make my training programs.<br/> (Times may differ slightly - a few seconds here or there)<br/>
+I use the kph (kilometers per hour) figure when doing track intervals on the treadmill since the treadmills where I am are in kilometers.</p>
+ <button class="print" type="button">Print (best in landscape)</button>
+<form id="tform">
+	<select id="chooseGuide">
+		<option value="0" selected="selected">Base training on the target time of your next race</option>
+		<option value="1">Base training on a previous 5k time</option>
+	</select>
+	<div>
+		<div id="distanceChoice">
+			<label>Choose distance you are training for</label>
+			<select id="guide">
+				
+				<option value="0" selected>5 k</option>
+				<option value="1" >5k Novice</option>
+				<option value="2" >5k Intermediate</option>
+				<option value="3">10k</option>
+				<option value="4">Half Marathon</option>
+				<option value="5">Marathon</option>
+				<option value="6">Marathon - Novice</option>
+			</select>
+		</div>
+		<div id="targetTime">
+			<label>Enter <span id="operator">the target time for your distance</span> hh:mm:ss</label>
+			<input class="timeInput" type="text" id="hours" placeholder="hours" />:
+			<input class="timeInput" type="text" id="minutes" placeholder="minutes" />:
+			<input class="timeInput" type="text" id="seconds" placeholder="seconds" />
+			<br/><input id="setit" type="submit" value="create program" />
+		</div>
+	</div>
+
+</form>
+
+<hr/>
+<p class="headnotes">Rest interval jog/walk between run intervals<br>
+</p>
+<table id='training' class='sar-table'> 
+	<thead>
+	<tr>
+		<th>Week</th>
+		<th>Cross training <br/> or Rest day</th>
+		<th>key run 1<span id="kr1" class="warmup"><br>10min warmup<br/> 10min cooldown</span></th>
+		<th>Cross training <br/> or Rest day</th>
+		<th>key run 2<span id="kr2" class="warmup"><br>1 mile warmup<br/> 1 mile cooldown</span></th>
+		<th>Cross training <br/> or Rest day</th>
+		<th>key run 3<span id="kr3" class="warmup"><br/>use 1st mile as warmup (slower)<br/>10min cooldown</span></th>
+		<th>Cross training <br/> or Rest day</th>
+	</tr>
+	</thead>
+	<tbody>
+
+
+	</tbody>
+</table>
+<p class="notes">Notes:</p>
+<ul class="notes">
+	<li>I stretched after warmup, and after cooldown</li>
+	<li>rest days and cross training days can be moved around, as long as you have a gap between key runs</li>
+</ul>
+<script>var data = {}; </script>
+<script type="text/javascript" src="js/5k.js"></script>
+<script type="text/javascript" src="js/5kN.js"></script>
+<script type="text/javascript" src="js/5kI.js"></script>
+<script type="text/javascript" src="js/10k.js"></script>
+<script type="text/javascript" src="js/hm.js"></script>
+<script type="text/javascript" src="js/m.js"></script>
+<script type="text/javascript" src="js/mNovice.js"></script>
+<script type="text/javascript" src="js/scripts.js"></script>
+
+</body>
+</html>
